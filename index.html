@@ -1,0 +1,13 @@
+<html ng-app="angularTest">
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+		<script type="text/javascript" src="scheduler/scheduler.module.js"></script>
+		<script type="text/javascript" src="scheduler/scheduler.component.js"></script>
+		<script type="text/javascript" src="scheduler/scheduleGrid/scheduleGrid.component.js"></script>
+		<script type="text/javascript" src="angularTest.module.js"></script>
+	</head>
+	<body ng-controller="angularTestCtrl as ctrl">
+		<input type="button" ng-click="ctrl.test()" value="Test">
+		<scheduler></scheduler>
+	</body>
+</html>

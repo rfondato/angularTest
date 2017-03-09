@@ -1,1 +1,1 @@
-angular.module("schedule", []);
+angular.module("scheduler", []);
