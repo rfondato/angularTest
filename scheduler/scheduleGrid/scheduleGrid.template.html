@@ -1,9 +1,12 @@
 <table>
 	<tr>
-		<th ng-repeat="day in $ctrl.headers"> {{day}} </th>
+		<th ng-repeat="header in $ctrl.headers"> {{header}} </th>
 	</tr>
 	<tr ng-repeat="hour in $ctrl.hours">
 		<td> {{hour}} </td>
-		<td ng-repeat="day in $ctrl.days"> {{hour}}:{{day}} </td>
+		<td ng-repeat="day in $ctrl.days">
+			<schedule-item ng-if="$ctrl.schedule[day][hour]" item="$ctrl.schedule[day][hour]"> </schedule-item>
+			<div ng-if="!$ctrl.schedule[day][hour]"> Empty </div>
+		</td>
 	</tr>
 </table>
