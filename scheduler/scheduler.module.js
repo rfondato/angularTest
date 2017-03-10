@@ -1,1 +1,1 @@
-angular.module("scheduler", []);
+angular.module("scheduler", ['ang-drag-drop']);

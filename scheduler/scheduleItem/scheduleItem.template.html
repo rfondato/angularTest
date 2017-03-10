@@ -1,4 +1,4 @@
-<div>
-	<div> {{$ctrl.item.title}} </div>
-	<div> {{$ctrl.item.description}} </div>
+<div ng-if="$ctrl.item" class="panel panel-info">
+	<div class="panel-heading"> {{$ctrl.item.title}} </div>
+	<div class="panel-body"> {{$ctrl.item.description}} </div>
 </div>

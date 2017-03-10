@@ -1,12 +1,11 @@
-<table>
+<table class="table table-bordered">
 	<tr>
 		<th ng-repeat="header in $ctrl.headers"> {{header}} </th>
 	</tr>
 	<tr ng-repeat="hour in $ctrl.hours">
 		<td> {{hour}} </td>
-		<td ng-repeat="day in $ctrl.days">
-			<schedule-item ng-if="$ctrl.schedule[day][hour]" item="$ctrl.schedule[day][hour]"> </schedule-item>
-			<div ng-if="!$ctrl.schedule[day][hour]"> Empty </div>
+		<td ng-repeat="day in $ctrl.days"  ui-on-Drop="$ctrl.onDrop($data, day, hour)">
+			<schedule-item item="$ctrl.schedule[day][hour]" ui-draggable="true" drag="$ctrl.schedule[day][hour]" on-drop-success="$ctrl.onDropSuccess(day, hour)"> </schedule-item>
 		</td>
 	</tr>
 </table>
