@@ -4,11 +4,15 @@ function ScheduleGridController() {
 	this.headers = ["Hours"].concat(this.days);
 	
 	this.onDrop = function ($data, day, hour) {
-		this.schedule[day][hour] = $data;
+		this.schedule.remove($data.day, $data.hour)
+		$data.day = day;
+		$data.hour = hour;
+		$data.removeFromSource = true;
+		this.schedule.setItem($data);
 	}
 	
-	this.onDropSuccess = function (day, hour) {
-		this.schedule[day][hour]= null;
+	this.onSelectItem = function (day, hour) {
+		this.itemSelected({item : this.schedule.getItem(day, hour)});
 	}
 }
 
@@ -18,6 +22,7 @@ angular
 	templateUrl: "scheduler/scheduleGrid/scheduleGrid.template.html",
 	controller: ScheduleGridController,
 	bindings: {
-		schedule: '<'
+		schedule: '<',
+		itemSelected: '&'
 	}
 });

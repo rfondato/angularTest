@@ -1,0 +1,27 @@
+<div class="form-group" ui-on-Drop="$ctrl.onDrop($data)">
+	
+	<label for="day"> Day: </label>
+	<select id="day" 
+			name="day"
+			class="form-control"
+			ng-options="day for day in $ctrl.days"
+			ng-model="$ctrl.currentItem.day">	
+	</select>
+	
+	<label for="hour"> Hour: </label>
+	<select id="hour" 
+			name="hour"
+			class="form-control"
+			ng-options="hour for hour in $ctrl.hours"
+			ng-model="$ctrl.currentItem.hour">	
+	</select>
+	
+	<label for="title"> Title: </label>
+	<input id="title" name="title" type="text" class="form-control" ng-model="$ctrl.currentItem.title">
+	
+	<label for="description"> Description: </label>
+	<textarea id="description" name="description" type="text" class="form-control" ng-model="$ctrl.currentItem.description"></textarea>
+
+	<button class="btn btn-default" ng-click="$ctrl.saveItem()"> Save </button>
+	<button class="btn btn-default" ng-click="$ctrl.removeItem()"> Remove </button>
+</div>

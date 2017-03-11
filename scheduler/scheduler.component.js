@@ -3,16 +3,25 @@ angular
 .component("scheduler", {
 	templateUrl: "scheduler/scheduler.template.html",
 	controller: function () {
-		this.schedule = {};
+		this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		this.hours = ["8", "9", "10", "11"];
+		this.currentItem = new ScheduleItem(this.days[0], this.hours[0], "","");
 		
-		var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-		var hours = ["8", "9", "10", "11"];
+		this.schedule = new Schedule(this.days, this.hours);
 		
-		for (var i=0; i < days.length; i++){
-			this.schedule[days[i]] = {};
+		this.saveItem = function (item) {
+			this.schedule.setItem(item);
 		}
 		
-		this.schedule["Tuesday"]["9"] = new ScheduleItem("Test", "Test Desc");
-		this.schedule["Thursday"]["11"] = new ScheduleItem("Test 2", "Test Desc 2");
+		this.removeItem = function (item) {
+			this.schedule.removeItem (item);
+		}
+		
+		this.selectItem = function (item) {
+			this.currentItem = item;
+		}
+		
+		this.schedule.setItem(new ScheduleItem("Tuesday", "9", "Test", "Test Desc"));
+		this.schedule.setItem(new ScheduleItem("Thursday", "11", "Test 2", "Test Desc 2"));
 	}
 });
