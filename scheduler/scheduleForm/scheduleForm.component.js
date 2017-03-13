@@ -1,7 +1,10 @@
 function ScheduleFormController() {
-	//this.selectedDay = this.days[0];
-	//this.selectedHour = this.hours[0];
-	//this.currentItem = new ScheduleItem ("","");
+	
+	this.$onInit = function () {
+		this.selectedDay = this.days[0];
+		this.selectedHour = this.hours[0];
+		this.currentItem = new ScheduleItem (selectedDay, selectedHour, "","");
+	};
 	
 	this.saveItem = function () {
 		this.onSave({item: this.currentItem});
