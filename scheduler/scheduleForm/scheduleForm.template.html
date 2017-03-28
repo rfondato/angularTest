@@ -22,6 +22,6 @@
 	<label for="description"> Description: </label>
 	<textarea id="description" name="description" type="text" class="form-control" ng-model="$ctrl.currentItem.description"></textarea>
 
-	<button class="btn btn-default" ng-click="$ctrl.saveItem()"> Save </button>
-	<button class="btn btn-default" ng-click="$ctrl.removeItem()"> Remove </button>
+	<button class="btn btn-default" ng-click="$ctrl.saveItem()" ng-if="$ctrl.showButtons"> Save </button>
+	<button class="btn btn-default" ng-click="$ctrl.removeItem()" ng-if="$ctrl.showButtons"> Remove </button>
 </div>

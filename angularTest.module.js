@@ -1,1 +1,1 @@
-angular.module("angularTest", ["scheduler"]);
+angular.module("angularTest", ["scheduler", 'ui.bootstrap']);

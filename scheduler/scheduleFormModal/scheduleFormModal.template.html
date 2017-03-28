@@ -1,0 +1,18 @@
+<div class="modal-content">
+	<div class="modal-header">
+    	<h3 class="modal-title" id="modal-title">Add/Edit Event</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+		<schedule-form 
+			days="$ctrl.days"
+			hours="$ctrl.hours"
+			current-item="$ctrl.currentItem"
+			show-buttons=false
+			>
+		</schedule-form>
+	</div>
+	<div class="modal-footer">
+	  	<button class="btn btn-primary" type="button" ng-click="$ctrl.save()">Save</button>
+	  	<button class="btn btn-error" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+	</div>
+</div>

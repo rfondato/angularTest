@@ -1,9 +1,8 @@
 function ScheduleFormController() {
 	
 	this.$onInit = function () {
-		this.selectedDay = this.days[0];
-		this.selectedHour = this.hours[0];
-		this.currentItem = new ScheduleItem (selectedDay, selectedHour, "","");
+		if (!this.currentItem)
+			this.currentItem = new ScheduleItem (this.days[0], this.hours[0], "","");
 	};
 	
 	this.saveItem = function () {
@@ -34,6 +33,7 @@ angular
 		days:'<',
 		hours:'<',
 		currentItem:'<',
+		showButtons:'<',
 		onSave:'&',
 		onRemove: '&'
 	}
