@@ -14,6 +14,10 @@ function ScheduleGridController($uibModal) {
 		this.schedule.setItem($data);
 	}
 	
+	this.onDropFailure = function (day, hour) {
+		this.schedule.remove(day, hour);
+	}
+	
 	this.onSelectItem = function (day, hour) {
 		this.selectedItem = this.schedule.getItem(day, hour);
 		this.itemSelected({item : this.selectedItem});
