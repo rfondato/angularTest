@@ -1,4 +1,4 @@
 <div ng-if="$ctrl.item" class="panel panel-info">
-	<div class="panel-heading"> {{$ctrl.item.title}} </div>
-	<div class="panel-body"> {{$ctrl.item.description}} </div>
+	<div class="panel-heading"> <editable-label text="$ctrl.item.title"> </editable-label> </div>
+	<div class="panel-body"> <editable-label text="$ctrl.item.description"> </editable-label> </div>
 </div>

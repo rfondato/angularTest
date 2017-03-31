@@ -1,0 +1,11 @@
+<div ng-if="!$ctrl.editing" ng-dblclick="$ctrl.editing = true; $event.stopPropagation(); angular.element('#elementId').focus()">
+	 {{$ctrl.text}}
+</div>
+
+<input 	ng-if="$ctrl.editing"
+		type="text"
+		ng-model="$ctrl.text"
+		ng-keypress="($event.which === 13)?$ctrl.editing = false:0"
+		ng-blur="$ctrl.editing = false"
+		focus-when="$ctrl.editing"
+		>
