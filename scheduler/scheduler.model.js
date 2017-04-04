@@ -22,3 +22,5 @@ Schedule.prototype.remove = function (day,hour) {
 Schedule.prototype.getItem = function (day, hour) {
 	return this.schedule[day][hour];
 }
+
+exports = module.exports = Schedule;
