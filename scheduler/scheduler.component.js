@@ -2,12 +2,18 @@ angular
 .module("scheduler")
 .component("scheduler", {
 	templateUrl: "scheduler/scheduler.template.html",
-	controller: function () {
-		this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-		this.hours = ["8", "9", "10", "11"];
-		this.currentItem = new ScheduleItem(this.days[0], this.hours[0], "","");
+	controller: function ($http) {
 		
-		this.schedule = new Schedule(this.days, this.hours);
+		this.$onInit = function () {
+			$http({
+				  method: 'GET',
+				  url: 'http://127.0.0.1:8000/schedule/'
+				}).then(function successCallback(response) {
+				    this.schedule = response.data;
+				  }, function errorCallback(response) {
+					  alert(response.data)
+			});
+		}
 		
 		this.saveItem = function (item) {
 			this.schedule.setItem(item);
@@ -20,8 +26,5 @@ angular
 		this.selectItem = function (item) {
 			this.currentItem = item;
 		}
-		
-		this.schedule.setItem(new ScheduleItem("Tuesday", "9", "Test", "Test Desc"));
-		this.schedule.setItem(new ScheduleItem("Thursday", "11", "Test 2", "Test Desc 2"));
 	}
 });
