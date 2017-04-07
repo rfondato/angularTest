@@ -2,9 +2,9 @@
 	<tr>
 		<th ng-repeat="header in $ctrl.headers"> {{header}} </th>
 	</tr>
-	<tr ng-repeat="hour in $ctrl.hours">
+	<tr ng-repeat="hour in $ctrl.schedule.hours">
 		<td> {{hour}} </td>
-		<td ng-repeat="day in $ctrl.days"  ui-on-Drop="$ctrl.onDrop($data, day, hour)" ng-dblclick="$ctrl.showEditModal(day, hour)">
+		<td ng-repeat="day in $ctrl.schedule.days"  ui-on-Drop="$ctrl.onDrop($data, day, hour)" ng-dblclick="$ctrl.showEditModal(day, hour)">
 			<div ui-draggable="true"
 				 drag="$ctrl.schedule.getItem(day, hour)"
 				 on-drop-failure="$ctrl.onDropFailure(day, hour)"

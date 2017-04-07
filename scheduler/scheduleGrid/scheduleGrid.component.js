@@ -1,10 +1,15 @@
 function ScheduleGridController($uibModal) {
 	
 	this.$onInit = function () {
-		this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-		this.hours = ["8", "9", "10", "11"];
-		this.headers = ["Hours"].concat(this.days);
+		//this.days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		//this.hours = ["8", "9", "10", "11"];
+		//this.headers = ["Hours"].concat(this.days);
 	}
+	
+	this.$onChanges = function (changes) {
+	     if (changes.schedule)
+	    	 this.headers = ["Hours"].concat(changes.schedule.currentValue.days);
+	 };
 	
 	this.onDrop = function ($data, day, hour) {
 		this.schedule.remove($data.day, $data.hour)

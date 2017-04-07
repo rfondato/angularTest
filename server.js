@@ -1,11 +1,12 @@
 var express = require("express");
-var ScheduleModel = require("./scheduler/scheduler.model");
+var Schedule = require("./common/scheduler.model");
+var ScheduleItem = require("./common/scheduleItem.model");
 var app = express();
 
 /* load the schedule */
 app.get("/schedule/", function(req, res) {
 	
-	console.log("a");
+	console.log("Getting Schedule");
 	
 	/* a hard coded example for now */
 	res.setHeader('Content-Type', 'application/json');
@@ -15,7 +16,7 @@ app.get("/schedule/", function(req, res) {
 	for (var i = 0; i < 24; i++)
 		hours.push(i);
 	
-	var schedule = new ScheduleModel(days, hours);
+	var schedule = new Schedule(days, hours);
 	
 	console.log(schedule);
 	

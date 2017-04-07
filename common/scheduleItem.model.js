@@ -12,3 +12,5 @@ ScheduleItem.prototype.setDay = function (day) {
 ScheduleItem.prototype.setHour = function (hour) {
 	this.hour = hour;
 }
+
+exports = module.exports = ScheduleItem;
